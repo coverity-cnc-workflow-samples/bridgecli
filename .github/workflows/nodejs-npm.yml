@@ -6,13 +6,12 @@ on:
   pull_request:
     branches: [main, master, develop, stage, release]
 
-permissions:
-  contents: write               
-  pull-requests: write
-  
 jobs:
   coverity:
     runs-on: mac-arm-sh
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/nodejs-npm
     
     env:
       ### SCANNING: Required fields
